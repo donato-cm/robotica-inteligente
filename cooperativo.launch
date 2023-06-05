@@ -1,0 +1,14 @@
+<launch>
+    <arg name="node_start_delay" default="2.0" /> 
+	<arg name="node_start_delay2" default="3.0" /> 
+	<node pkg="turtlesim" type="turtlesim_node" name="el_turlesim" />
+	<!-- <node pkg="rosservice" type="rosservice" name="kill_turtle_2" args="call /kill 'turtle2'"/> -->
+	<node pkg="rosservice" type="rosservice" name="load_turtle2" args="call /spawn 10 1 2.3 'turtle2'" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+	<!-- <node pkg="rosservice" type="rosservice" name="load_turtle2" args="call /spawn 3 10 1.5 'turtle2'" launch-prefix="bash -c 'sleep $(arg node_start_delay2); $0 $@' "/>
+	<node pkg="rosservice" type="rosservice" name="load_turtle3" args="call /spawn 4 4 1.5 'turtle3'" launch-prefix="bash -c 'sleep $(arg node_start_delay2); $0 $@' "/>
+	<node pkg="rosservice" type="rosservice" name="load_turtle4" args="call /spawn 6 7 1.5 'turtle4'" launch-prefix="bash -c 'sleep $(arg node_start_delay2); $0 $@' "/> -->
+    <node pkg="cooperativo" type="turtle2.py" name="coop1" />/
+    <!-- <node pkg="cooperativo" type="rosmove2.py" name="coop2" />
+    <node pkg="cooperativo" type="rosmove3.py" name="coop3" />
+    <node pkg="cooperativo" type="rosmove4.py" name="coop4" /> -->
+</launch>
