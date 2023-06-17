@@ -1,0 +1,13 @@
+<launch>
+    <arg name="node_start_delay" default="3.0" />
+
+
+	<node pkg="turtlesim" type="turtlesim_node" name="el_turlesim" />
+	<node pkg="rosservice" type="rosservice" name="kill_turtle_1" args="call /kill 'turtle1'"/>
+	<node pkg="rosservice" type="rosservice" name="load_turtle1" args="call /spawn 5 5 0 'turtle1'" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+	<node pkg="rosservice" type="rosservice" name="load_turtle2" args="call /spawn 2 9 0 'turtle2'" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+
+    <node pkg="benito2_1" type="rosmove.py" name="cuadrado" />
+    <node pkg="benito2_1" type="rosmove2.py" name="cuadrado2" />
+
+</launch>
